@@ -8,6 +8,7 @@ MAX_ATTEMPT = 8
 
 def initial_referee(data):
     data["attempt_count"] = 0
+    data["guess"] = 0
     return data
 
 def process_referee( referee_data, user_result ):
@@ -24,6 +25,7 @@ def process_referee( referee_data, user_result ):
     goal = referee_data['number']
     prev_steps = referee_data['input']
     divisor, guess = user_result
+    referee_data['guess'] = guess
     
     if not isinstance( divisor, int ) or not isinstance( guess, int ):
         referee_data.update({"result": False, "result_addon": "Result list format is [int, int]"})
@@ -44,7 +46,8 @@ def process_referee( referee_data, user_result ):
 
 def is_win_referee(referee_data):
     goal = referee_data['number']
-    _, guess = referee_data['input'][-1][0]
+    guess = referee_data['guess']
+    
     return goal == guess
 
 api.add_listener(
