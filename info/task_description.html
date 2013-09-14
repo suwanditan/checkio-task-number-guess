@@ -1,0 +1,24 @@
+<p>
+    Task will prepare a number, range from 1 to 100, and your task is, <strong>guess the number by doing series of attempts</strong>.<br><br>
+    Your solution will guess the number by submitting an <strong>integer divisor</strong>, range from 2 to 10, and your best <strong>guess number</strong>.
+    At each attempt, you will get information, as a list of tuples, whose each tuple contains its remainder result, and your previous divisor. <br><br>
+    You should find the number in 8 guesses.
+</p>
+
+<p>
+    <strong>Input: </strong> Information about previous attempt. A list of tuples. Each tuple contains its remainder and previous divisor.
+</p>
+<p>
+    <strong>Output: </strong> A list of integer divisor and your best guest. A list of two integers.
+</p>
+
+
+<div class="for_info_only">
+    <p>
+        <strong>Example:</strong>
+    </p>
+    <pre class="brush: python">checkio([(1,5)])                # the number has a remainder 1
+    checkio([(1,5),(2,3)])          # the number has a remainder 2
+    checkio([(1,5),(2,3),(3,4)])    # the number has a remainder 3
+    checkio([(1,5),(2,3),(3,4),(3,8)])    # the number has a remainder 3</pre>
+</div>
