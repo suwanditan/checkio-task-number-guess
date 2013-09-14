@@ -15,7 +15,7 @@ def process_referee( referee_data, user_result ):
     referee_data['attempt_count'] += 1
     
     if referee_data['attempt_count'] > MAX_ATTEMPT:
-        referee_data.update({"result": False, "result_addon": "Too many moves."})
+        referee_data.update({"result": False, "result_addon": "Too many attempts."})
         return referee_data
         
     if not isinstance( user_result, ( list, tuple ) ) or len( user_result ) != 2:
