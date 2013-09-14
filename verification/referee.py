@@ -44,8 +44,8 @@ def process_referee( referee_data, user_result ):
 
 def is_win_referee(referee_data):
     goal = referee_data['number']
-    prev_steps = referee_data['input']
-    return goal == prev_steps[-1][-1]
+    _, guess = referee_data['input'][-1][0]
+    return goal == guess
 
 api.add_listener(
     ON_CONNECT,
