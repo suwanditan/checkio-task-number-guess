@@ -39,7 +39,8 @@ def process_referee( referee_data, user_result ):
         referee_data.update({"result": False, "result_addon": "You gave wrong guess number range."})
         return referee_data
 
-    prev_steps.append( ( goal%divisor, divisor ) )
+    remainder = goal % divisor
+    prev_steps.append( ( remainder , divisor ) )
     
     referee_data.update({"result": True, "result_addon": "Next Step"})
     return referee_data
