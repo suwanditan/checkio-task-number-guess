@@ -22,7 +22,7 @@ def process_referee( referee_data, user_result ):
         referee_data.update({"result": False, "result_addon": "The function should return a list with two values."})
         return referee_data
         
-    _, goal = referee_data['number']
+    goal = referee_data['number']
     prev_steps = referee_data['input']
     divisor, guess = user_result
     referee_data['guess'] = guess
@@ -45,7 +45,7 @@ def process_referee( referee_data, user_result ):
     return referee_data
 
 def is_win_referee(referee_data):
-    _, goal = referee_data['number']
+    goal = referee_data['number']
     guess = referee_data['guess']
     
     return goal == guess
