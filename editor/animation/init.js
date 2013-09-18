@@ -73,15 +73,17 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 $content.find('.call').html('Pass: checkio(' + ext.JSON.encode(checkioInput) + ')');
                 $content.find('.answer').remove();
             }
-            //Dont change the code before it
+            var $table = $content.find(".explanation table");
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            for (var i = 0; i < checkioInput.length; i++) {
+                var $tr = $("<tr></tr>");
+                $tr.append($("<td></td>").text("X"));
+                $tr.append($("<td></td>").text("%"));
+                $tr.append($("<td></td>").text(checkioInput[i][1]));
+                $tr.append($("<td></td>").text("="));
+                $tr.append($("<td></td>").text(checkioInput[i][0]));
+                $table.append($tr);
+            }
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -106,10 +108,6 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
         var colorGrey1 = "#EBEDED";
 
         var colorWhite = "#FFFFFF";
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
 
 
     }
