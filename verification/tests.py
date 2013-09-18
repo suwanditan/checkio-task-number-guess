@@ -1,37 +1,37 @@
 TESTS = {
-    "1st": {
+    " 1st": {
         "input": [(2,5)],
         "number": 47
     },
-    "2nd": {
+    " 2nd": {
         "input": [(3,7)],
         "number": 94
     },
-    "3rd": {
+    " 3rd": {
         "input": [(0,2)],
         "number": 52
     },
-    "4th": {
+    " 4th": {
         "input": [(0,8)],
         "number": 64
     },
-    "5th": {
+    " 5th": {
         "input": [(2,4)],
         "number": 38
     },
-    "6th": {
+    " 6th": {
         "input": [(2,4)],
         "number": 22
     },
-    "7th": {
+    " 7th": {
         "input": [(1,5)],
         "number": 76
     },
-    "8th": {
+    " 8th": {
         "input": [(1,4)],
         "number": 89
     },
-    "9th": {
+    " 9th": {
         "input": [(1,2)],
         "number": 17
     },
@@ -52,3 +52,5 @@ TESTS = {
         "number": 99
     }    
 }
+
+print(sorted(TESTS.keys()))
