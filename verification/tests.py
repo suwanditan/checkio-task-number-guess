@@ -52,5 +52,3 @@ TESTS = {
         "number": 99
     }    
 }
-
-print(sorted(TESTS.keys()))
