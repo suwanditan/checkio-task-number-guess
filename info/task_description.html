@@ -3,188 +3,217 @@
         margin-left: auto;
         margin-right: auto;
     }
-    
-    .game-info td, 
+
+    .game-info td,
     .game-info-short td {
         padding: 8px 8px 8px 8px;
         border-bottom: 1px dotted #8FC7ED;
     }
-    
-    .game-info td.tight, 
+
+    .game-info td.tight,
     .game-info-short td.tight {
         padding: 0;
         border-bottom: none;
     }
-    
+
     .head-border {
         border-bottom: 2px solid #8FC7ED !important;
     }
-    
+
     .quote {
         padding-left: 5%;
         padding-right: 2%;
         margin-bottom: 32px;
     }
-    
+
     .quote-author {
         float: right;
         font-style: italic;
         font-size: .9em;
     }
-    
+
     .remark {
         padding: 0;
         font-size: .9em;
     }
-    
+
 </style>
 <p>
-    <blockquote class="quote">
-        ...When you have eliminated all which is impossible, then whatever remains, however improbable, must be the truth.<br>
-        <span class="quote-author">Sir Arthur Conan Doyle - <a href="http://en.wikiquote.org/wiki/Sherlock_Holmes">Sherlock Holmes</a></span>
+<blockquote class="quote">
+    ...When you have eliminated all which is impossible, then whatever remains, however improbable, must be the
+    truth.<br>
+    <span class="quote-author">Sir Arthur Conan Doyle - <a href="http://en.wikiquote.org/wiki/Sherlock_Holmes">Sherlock
+        Holmes</a></span>
 
-    </blockquote>
+</blockquote>
 </p>
 <p>
-    You are given an unknown number within the range of 1 to 100, inclusive. 
+    You are given an unknown number within the range of 1 to 100, inclusive.
     Your task is to <strong>guess what the number is by performing a series of guesses</strong>.<br><br>
-    Your solution will need to guess the number by submitting an <strong>integer divisor</strong> ranging from 2 to 10, and the <strong>number you guessed</strong>.
-    At each attempt you will get information as a list of tuples. Each tuple contains the remainder result along with your previous divisor. <br><br>
-    You should find the number within 8 guesses. We will give you a little extra info on your first attempt... <em>Use it wisely young grasshopper</em>...
+    Your solution will need to guess the number by submitting an <strong>integer divisor</strong> ranging from 2 to 10,
+    and the <strong>number you guessed</strong>.
+    At each attempt you will get information as a list of tuples. Each tuple contains the remainder result along with
+    your previous divisor. <br><br>
+    You should find the number within 8 guesses. We will give you a little extra info on your first attempt... <em>Use
+    it wisely young grasshopper</em>...
 </p>
 <p>
     Consider the following example:<br>
-        <table class="game-info for_info_only" cellspacing="0" cols="6" border="0">
-	    <colgroup span="2" width="85"></colgroup>
-	    <colgroup width="51"></colgroup>
-	    <colgroup width="142"></colgroup>
-	    <colgroup width="201"></colgroup>
-	    <colgroup width="275"></colgroup>
-	    <tbody><tr>
-		    <td class="head-border" height="16" align="CENTER"><b>Attempt</b></td>
-		    <td class="head-border" align="CENTER"><b>Divisor</b></td>
-		    <td class="head-border" align="CENTER"><b>Guess</b></td>
-		    <td class="head-border" align="CENTER"><b>Submit</b></td>
-		    <td class="head-border" align="CENTER"><b>Information</b></td>
-		    <td class="head-border" align="LEFT"><b>Remark</b></td>
-	    </tr>
-	    <tr>
-		    <td height="93" align="CENTER" valign="TOP" sdval="1" sdnum="1033;">1</td>
-		    <td align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
-		    <td align="CENTER" valign="TOP" sdval="99" sdnum="1033;">99</td>
-		    <td align="CENTER" valign="TOP">(2,99)</td>
-		    <td align="LEFT" valign="TOP">(1,5),(1,2)</td>
-		    <td align="LEFT" valign="TOP">You try a divisor of 2 and try your luck with 99; however, you've got information as a list of tuples, returning the remainder of your previous divisor along with your previous divisor. (that means, you still need to guess)</td>
-	    </tr>
-	    <tr>
-		    <td height="93" align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
-		    <td align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
-		    <td align="CENTER" valign="TOP" sdval="91" sdnum="1033;">91</td>
-		    <td align="CENTER" valign="TOP">(3,91)</td>
-		    <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3)</td>
-		    <td align="LEFT" valign="TOP">Your solution may suggest 91 because it passed with the information data. Is it? ( 91%5=1; 91%2=1 )Again, you've still got no response. Guess again.</td>
-	    </tr>
-	    <tr>
-		    <td height="93" align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
-		    <td align="CENTER" valign="TOP" sdval="6" sdnum="1033;">6</td>
-		    <td align="CENTER" valign="TOP" sdval="41" sdnum="1033;">41</td>
-		    <td align="CENTER" valign="TOP">(6,41)</td>
-		    <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6)</td>
-		    <td align="LEFT" valign="TOP">Your solution might suggest 41 because it passed with the information data. ( 41%5=1; 41%2=1; 41%3=2 ) Again, you've still got no response.</td>
-	    </tr>
-	    <tr>
-		    <td height="93" align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
-		    <td align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
-		    <td align="CENTER" valign="TOP" sdval="71" sdnum="1033;">71</td>
-		    <td align="CENTER" valign="TOP">(4,71)</td>
-		    <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6),(3,4)</td>
-		    <td align="LEFT" valign="TOP">Your solution may suggest 71 because it passed with the information data. ( 71%5=1; 71%2=1; 71%3=2; 71%6=5 ) Now there are only 4 remaining attempts left.</td>
-	    </tr>
-	    <tr>
-		    <td class="tight" height="16" align="CENTER" sdval="5" sdnum="1033;">5</td>
-		    <td class="tight" colspan="5" rowspan="4" align="CENTER" valign="MIDDLE">and, so on...</td>
-		    </tr>
-	    <tr>
-		    <td class="tight" height="16" align="CENTER" sdval="6" sdnum="1033;">6</td>
-		    </tr>
-	    <tr>
-		    <td class="tight" height="16" align="CENTER" sdval="7" sdnum="1033;">7</td>
-		    </tr>
-	    <tr>
-		    <td class="tight" height="16" align="CENTER" sdval="8" sdnum="1033;">8</td>
-		    </tr>
-    </tbody></table>
-    
-    <table class="game-info-short for_editor_only" cellspacing="0" cols="5" border="0">
-	        <colgroup span="4" width="85"></colgroup>
-	        <colgroup width="183"></colgroup>
-	        <tbody><tr>
-		        <td class="head-border" height="16" align="CENTER"><b>Attempt</b></td>
-		        <td class="head-border" align="CENTER"><b>Divisor</b></td>
-		        <td class="head-border" align="CENTER"><b>Guess</b></td>
-		        <td class="head-border" align="CENTER"><b>Submit</b></td>
-		        <td class="head-border" align="CENTER"><b>Response</b></td>
-	        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" valign="TOP" sdval="1" sdnum="1033;">1</td>
-		        <td align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
-		        <td align="CENTER" valign="TOP" sdval="99" sdnum="1033;">99</td>
-		        <td align="CENTER" valign="TOP">(2,99)</td>
-		        <td align="LEFT" valign="TOP">(1,5),(1,2)</td>
-	        </tr>
-	        <tr>
-		        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #1:</strong><br>You try a divisor of 2 and try your luck with 99; however, you've got a response of a list of tuples, returning the remainder of your previous divisor and your previous divisor. ( that means you still need to guess )<br></td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
-		        <td align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
-		        <td align="CENTER" valign="TOP" sdval="91" sdnum="1033;">91</td>
-		        <td align="CENTER" valign="TOP">(3,91)</td>
-		        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3)</td>
-	        </tr>
-	        <tr>
-		        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #2:</strong><br>Your solution suggests 91 because it passed with the response data, isn't it? ( 91%5=1; 91%2=1 ) Again, you've still got a response. Next guess, then.</td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
-		        <td align="CENTER" valign="TOP" sdval="6" sdnum="1033;">6</td>
-		        <td align="CENTER" valign="TOP" sdval="41" sdnum="1033;">41</td>
-		        <td align="CENTER" valign="TOP">(6,41)</td>
-		        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6)</td>
-	        </tr>
-	        <tr>
-		        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #3:</strong><br>Your solution suggests 41 because it passed with the response data. ( 41%5=1; 41%2=1; 41%3=2 ) Again, you've still got a response.</td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
-		        <td align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
-		        <td align="CENTER" valign="TOP" sdval="71" sdnum="1033;">71</td>
-		        <td align="CENTER" valign="TOP">(4,71)</td>
-		        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6),(3,4)</td>
-	        </tr>
-	        <tr>
-		        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #4:</strong><br>Your solution suggests 71 because it passed with the response data. ( 71%5=1; 71%2=1; 71%3=2; 71%6=5 ) Again, you've still got a response.</td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" sdval="5" sdnum="1033;">5</td>
-		        <td colspan="4" rowspan="4" align="CENTER" valign="MIDDLE">and, so on...</td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" sdval="6" sdnum="1033;">6</td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" sdval="7" sdnum="1033;">7</td>
-		        </tr>
-	        <tr>
-		        <td height="16" align="CENTER" sdval="8" sdnum="1033;">8</td>
-		        </tr>
-        </tbody></table>
+<table class="game-info for_info_only" cellspacing="0" cols="6" border="0">
+    <colgroup span="2" width="85"></colgroup>
+    <colgroup width="51"></colgroup>
+    <colgroup width="142"></colgroup>
+    <colgroup width="201"></colgroup>
+    <colgroup width="275"></colgroup>
+    <tbody>
+    <tr>
+        <td class="head-border" height="16" align="CENTER"><b>Attempt</b></td>
+        <td class="head-border" align="CENTER"><b>Divisor</b></td>
+        <td class="head-border" align="CENTER"><b>Guess</b></td>
+        <td class="head-border" align="CENTER"><b>Submit</b></td>
+        <td class="head-border" align="CENTER"><b>Information</b></td>
+        <td class="head-border" align="LEFT"><b>Remark</b></td>
+    </tr>
+    <tr>
+        <td height="93" align="CENTER" valign="TOP" sdval="1" sdnum="1033;">1</td>
+        <td align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
+        <td align="CENTER" valign="TOP" sdval="99" sdnum="1033;">99</td>
+        <td align="CENTER" valign="TOP">(2,99)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2)</td>
+        <td align="LEFT" valign="TOP">You try a divisor of 2 and try your luck with 99; however, you've got information
+            as a list of tuples, returning the remainder of your previous divisor along with your previous divisor.
+            (that means, you still need to guess)
+        </td>
+    </tr>
+    <tr>
+        <td height="93" align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
+        <td align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
+        <td align="CENTER" valign="TOP" sdval="91" sdnum="1033;">91</td>
+        <td align="CENTER" valign="TOP">(3,91)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3)</td>
+        <td align="LEFT" valign="TOP">Your solution may suggest 91 because it passed with the information data. Is it? (
+            91%5=1; 91%2=1 )Again, you've still got no response. Guess again.
+        </td>
+    </tr>
+    <tr>
+        <td height="93" align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
+        <td align="CENTER" valign="TOP" sdval="6" sdnum="1033;">6</td>
+        <td align="CENTER" valign="TOP" sdval="41" sdnum="1033;">41</td>
+        <td align="CENTER" valign="TOP">(6,41)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6)</td>
+        <td align="LEFT" valign="TOP">Your solution might suggest 41 because it passed with the information data. (
+            41%5=1; 41%2=1; 41%3=2 ) Again, you've still got no response.
+        </td>
+    </tr>
+    <tr>
+        <td height="93" align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
+        <td align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
+        <td align="CENTER" valign="TOP" sdval="71" sdnum="1033;">71</td>
+        <td align="CENTER" valign="TOP">(4,71)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6),(3,4)</td>
+        <td align="LEFT" valign="TOP">Your solution may suggest 71 because it passed with the information data. (
+            71%5=1; 71%2=1; 71%3=2; 71%6=5 ) Now there are only 4 remaining attempts left.
+        </td>
+    </tr>
+    <tr>
+        <td class="tight" height="16" align="CENTER" sdval="5" sdnum="1033;">5</td>
+        <td class="tight" colspan="5" rowspan="4" align="CENTER" valign="MIDDLE">and, so on...</td>
+    </tr>
+    <tr>
+        <td class="tight" height="16" align="CENTER" sdval="6" sdnum="1033;">6</td>
+    </tr>
+    <tr>
+        <td class="tight" height="16" align="CENTER" sdval="7" sdnum="1033;">7</td>
+    </tr>
+    <tr>
+        <td class="tight" height="16" align="CENTER" sdval="8" sdnum="1033;">8</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="game-info-short for_editor_only" cellspacing="0" cols="5" border="0">
+    <colgroup span="4" width="85"></colgroup>
+    <colgroup width="183"></colgroup>
+    <tbody>
+    <tr>
+        <td class="head-border" height="16" align="CENTER"><b>Attempt</b></td>
+        <td class="head-border" align="CENTER"><b>Divisor</b></td>
+        <td class="head-border" align="CENTER"><b>Guess</b></td>
+        <td class="head-border" align="CENTER"><b>Submit</b></td>
+        <td class="head-border" align="CENTER"><b>Response</b></td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" valign="TOP" sdval="1" sdnum="1033;">1</td>
+        <td align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
+        <td align="CENTER" valign="TOP" sdval="99" sdnum="1033;">99</td>
+        <td align="CENTER" valign="TOP">(2,99)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2)</td>
+    </tr>
+    <tr>
+        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #1:</strong><br>You try a divisor of 2
+            and try your luck with 99; however, you've got a response of a list of tuples, returning the remainder of
+            your previous divisor and your previous divisor. ( that means you still need to guess )<br></td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" valign="TOP" sdval="2" sdnum="1033;">2</td>
+        <td align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
+        <td align="CENTER" valign="TOP" sdval="91" sdnum="1033;">91</td>
+        <td align="CENTER" valign="TOP">(3,91)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3)</td>
+    </tr>
+    <tr>
+        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #2:</strong><br>Your solution suggests
+            91 because it passed with the response data, isn't it? ( 91%5=1; 91%2=1 ) Again, you've still got a
+            response. Next guess, then.
+        </td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" valign="TOP" sdval="3" sdnum="1033;">3</td>
+        <td align="CENTER" valign="TOP" sdval="6" sdnum="1033;">6</td>
+        <td align="CENTER" valign="TOP" sdval="41" sdnum="1033;">41</td>
+        <td align="CENTER" valign="TOP">(6,41)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6)</td>
+    </tr>
+    <tr>
+        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #3:</strong><br>Your solution suggests
+            41 because it passed with the response data. ( 41%5=1; 41%2=1; 41%3=2 ) Again, you've still got a response.
+        </td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
+        <td align="CENTER" valign="TOP" sdval="4" sdnum="1033;">4</td>
+        <td align="CENTER" valign="TOP" sdval="71" sdnum="1033;">71</td>
+        <td align="CENTER" valign="TOP">(4,71)</td>
+        <td align="LEFT" valign="TOP">(1,5),(1,2),(2,3),(5,6),(3,4)</td>
+    </tr>
+    <tr>
+        <td class="remark" colspan="5" align="LEFT" valign="TOP"><strong>Remark #4:</strong><br>Your solution suggests
+            71 because it passed with the response data. ( 71%5=1; 71%2=1; 71%3=2; 71%6=5 ) Again, you've still got a
+            response.
+        </td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" sdval="5" sdnum="1033;">5</td>
+        <td colspan="4" rowspan="4" align="CENTER" valign="MIDDLE">and, so on...</td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" sdval="6" sdnum="1033;">6</td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" sdval="7" sdnum="1033;">7</td>
+    </tr>
+    <tr>
+        <td height="16" align="CENTER" sdval="8" sdnum="1033;">8</td>
+    </tr>
+    </tbody>
+</table>
 </p>
 <p>
     You get the idea...
 </p>
 <p>
-    <strong>Input: </strong> Information about the previous attempt. A list of tuples. Each tuple contains its remainder and the previous divisor.
+    <strong>Input: </strong> Information about the previous attempt. A list of tuples. Each tuple contains its remainder
+    and the previous divisor.
 </p>
 <p>
     <strong>Output: </strong> A list of integer divisors and your best guess. A list of two integers.<br>
@@ -214,5 +243,5 @@ checkio([(1,5),(1,2),(2,3),(5,6),(3,4)])    # the number has a remainder 3
 
 
 <p><strong>Precondition: </strong><br>
-    0 < |number| &le; 100
+    0 < number &le; 100
 </p>
